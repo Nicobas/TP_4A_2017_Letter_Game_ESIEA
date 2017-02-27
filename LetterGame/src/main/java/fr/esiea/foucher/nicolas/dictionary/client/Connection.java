@@ -13,14 +13,12 @@ public class Connection implements Runnable {
     private Scanner sc = null;
 
     public Connection(Socket s) {
-
         socket = s;
     }
 
     public void run() {
 
         try {
-
             out = new PrintWriter(socket.getOutputStream());
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             sc = new Scanner(System.in);
@@ -28,21 +26,14 @@ public class Connection implements Runnable {
             System.out.println("Je suis connecté ");
 
             while (true) {
-                try {
+                message = in.readLine();
 
-                    message = in.readLine();
-
-                    if (message.equals("%#!GETMSG%#!")) {
-                        message = sc.nextLine();
-                        out.println(message);
-                        out.flush();
-                    } else
-                        System.out.println("Le serveur vous dit : " + message);
-
-                } catch (IOException e) {
-
-                    e.printStackTrace();
-                }
+                if (message.equals("%#!GETMSG%#!")) {
+                    message = sc.nextLine();
+                    out.println(message);
+                    out.flush();
+                } else
+                    System.out.println(message);
             }
         } catch (IOException e) {
 

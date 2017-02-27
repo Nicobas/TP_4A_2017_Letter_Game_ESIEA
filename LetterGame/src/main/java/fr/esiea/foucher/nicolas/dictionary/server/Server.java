@@ -25,7 +25,7 @@ public class Server {
             System.out.println("Appuyez sur ENTER pour commencer la partie");
             sc.nextLine();
 
-            t.stop();
+            t.interrupt(); //... voir comment faire pour refuser les clients
 
         } catch (IOException e) {
             System.err.println("Le port " + ss.getLocalPort() + " est déjà utilisé !");
