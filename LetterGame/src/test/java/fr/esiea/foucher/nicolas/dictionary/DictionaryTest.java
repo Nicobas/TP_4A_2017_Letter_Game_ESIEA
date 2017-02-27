@@ -1,4 +1,4 @@
-package fr.esiea.unique.binome.name.dictionary;
+package fr.esiea.foucher.nicolas.dictionary;
 
 import org.junit.Before;
 import org.junit.Test;
