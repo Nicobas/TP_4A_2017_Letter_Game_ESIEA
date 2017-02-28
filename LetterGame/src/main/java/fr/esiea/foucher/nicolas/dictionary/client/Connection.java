@@ -23,7 +23,7 @@ public class Connection implements Runnable {
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             sc = new Scanner(System.in);
 
-            System.out.println("Je suis connecté ");
+            System.out.println("Vous êtes connecté au serveur ! ");
 
             while (true) {
                 message = in.readLine();
@@ -37,7 +37,7 @@ public class Connection implements Runnable {
             }
         } catch (IOException e) {
 
-            System.err.println("Le serveur ne répond plus ");
+            System.err.println("Le serveur ne répond plus");
         }
     }
 

@@ -28,7 +28,6 @@ public class Server {
             System.out.println("Appuyez sur ENTER pour commencer la partie");
             //... Gerer aussi l'ajout des IA
             //... bloquer si 0 user
-            sc.nextLine();
             System.out.println();
 
             t.interrupt(); //... voir comment faire pour refuser les clients
