@@ -1,13 +1,12 @@
 package fr.esiea.foucher.nicolas.dictionary.server.game;
 
-import fr.esiea.foucher.nicolas.dictionary.MessageContainer;
 import fr.esiea.foucher.nicolas.dictionary.server.ClientManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
-    static int numberOfWordsToWin = 10;
+    static int numberOfWordsToWin = 2;
 
     public List<AbstractPlayer> players;
     public BoardGame boardgame;
@@ -18,7 +17,7 @@ public class Game {
     }
 
     public AbstractPlayer run() {
-        ClientManager.sendBroadcast(MessageContainer.getIntro(this.players.size()));
+        ClientManager.sendBroadcast(this.getIntro());
 
         // Pour chaque joueurs, on tire une lettre pour désigner l'ordre et on l'ajoute au pot commun
         for (AbstractPlayer player : this.players) {
@@ -50,12 +49,13 @@ public class Game {
         for (AbstractPlayer player : this.players) {
             ClientManager.sendBroadcast(player.getName());
         }
+        ClientManager.sendBroadcast("");
 
         while (true) {
             for (AbstractPlayer player : this.players) {
                 player.playRound(this.boardgame);
 
-                if (player.getFoundWords().size() >= numberOfWordsToWin)
+                if (player.hasWin())
                     return player;
             }
         }
@@ -63,5 +63,14 @@ public class Game {
 
     public void addPlayer(AbstractPlayer player) {
         this.players.add(player);
+    }
+
+    public String getIntro() {
+        String s = "\r\n";
+        s += " -- Début de la partie --" + "\r\n";
+        s += this.players.size() + " joueurs sont connectés" + "\r\n";
+        s += "Règles du jeu ..." + "\r\n";
+
+        return s;
     }
 }

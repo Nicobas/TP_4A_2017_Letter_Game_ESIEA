@@ -68,6 +68,7 @@ public class ClientPlayer extends AbstractPlayer {
     public void endRound() {
         this.client.sendMsg("Votre tour est terminé");
         ClientManager.sendBroadcast(this.getName() + " a terminé son tour", this.client);
+        ClientManager.sendBroadcast("");
     }
 
     public ClientInstance getClient() {

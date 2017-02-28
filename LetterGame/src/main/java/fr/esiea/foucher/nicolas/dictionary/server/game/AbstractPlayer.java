@@ -28,7 +28,7 @@ public abstract class AbstractPlayer {
         this.generateRandomLetter(bg);
         String word;
 
-        while ((word = this.findWord(bg)) != null) {
+        while ((word = this.findWord(bg)) != null && !this.hasWin()) {
             bg.addFoundWord(word);
             this.addFoundWord(word);
             this.generateRandomLetter(bg);
@@ -59,5 +59,9 @@ public abstract class AbstractPlayer {
 
     public Letter getFirstLetter() {
         return firstLetter;
+    }
+
+    public boolean hasWin() {
+        return this.foundWords.size() >= Game.numberOfWordsToWin;
     }
 }

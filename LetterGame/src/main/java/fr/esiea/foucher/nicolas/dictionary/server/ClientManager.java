@@ -23,6 +23,8 @@ public class ClientManager {
 
             ci.sendMsg(msg);
         }
+
+        System.out.println(msg);
     }
 
     public static void sendBroadcast(String msg) {
