@@ -36,6 +36,9 @@ public class Server {
             System.err.println("Le port " + ss.getLocalPort() + " est déjà utilisé !");
         }
 
-        game.run();
+        AbstractPlayer winner = game.run();
+
+        ClientManager.sendBroadcast(winner.getName() + " gagne le jeu !");
+        sc.nextLine();
     }
 }

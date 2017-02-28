@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Game {
+    static int numberOfWordsToWin = 10;
+
     public List<AbstractPlayer> players;
     public BoardGame boardgame;
 
@@ -16,25 +18,50 @@ public class Game {
     }
 
     public AbstractPlayer run() {
-        ClientManager.sendBroadcast(MessageContainer.getIntro(this.getPlayers().size()));
+        ClientManager.sendBroadcast(MessageContainer.getIntro(this.players.size()));
 
-        // Tirer une lettre chacun pour définir l'ordre, les mettre ds le pot commun
+        // Pour chaque joueurs, on tire une lettre pour désigner l'ordre et on l'ajoute au pot commun
+        for (AbstractPlayer player : this.players) {
+            player.generateFirstLetter(this.boardgame);
+        }
 
-        // Chaque tour :
-            // le joueur tire 2 lettres
-            // Il peut trouver des mots, si c'est le cas il pioche une lettre
-                // TQ il trouve ddes mots
-            // TQ le joueur à trouvé - de 10 mots
+        // Liste des joueurs par ordre de jeu
+        List<AbstractPlayer> orderedPlayers = new ArrayList<AbstractPlayer>();
 
-        // retourner le joueur gagnant
-        return null;
+        // On remplit la liste des joueus dans l'ordre
+        while (this.players.size() > 0) {
+            char c = '{'; //-- En ascii, '{' est le caractère jusre àprès le 'z'
+            AbstractPlayer p = null;
+            for (AbstractPlayer player : this.players) {
+                if (player.getFirstLetter().getChar() < c) {
+                    p = player;
+                    c = player.getFirstLetter().getChar();
+                }
+            }
+
+            orderedPlayers.add(p);
+            this.players.remove(p);
+        }
+
+        // On remplace la liste des joueurs non triés par la liste des joueurs triés
+        this.players = orderedPlayers;
+
+        ClientManager.sendBroadcast("L'ordre de jeu est le suivant :");
+        for (AbstractPlayer player : this.players) {
+            ClientManager.sendBroadcast(player.getName());
+        }
+
+        while (true) {
+            for (AbstractPlayer player : this.players) {
+                player.playRound(this.boardgame);
+
+                if (player.getFoundWords().size() >= numberOfWordsToWin)
+                    return player;
+            }
+        }
     }
 
-    public List<AbstractPlayer> getPlayers() {
-        return players;
-    }
-
-    public void adddPlayer(AbstractPlayer player) {
+    public void addPlayer(AbstractPlayer player) {
         this.players.add(player);
     }
 }

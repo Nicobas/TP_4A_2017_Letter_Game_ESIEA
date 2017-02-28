@@ -28,7 +28,7 @@ public class Connection implements Runnable {
             while (true) {
                 message = in.readLine();
 
-                if (message.equals("%#!GETMSG%#!")) {
+                if (message.equals("%#!CLIENTREQUEST%#!")) {
                     message = sc.nextLine();
                     out.println(message);
                     out.flush();

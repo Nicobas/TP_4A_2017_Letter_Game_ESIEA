@@ -32,7 +32,7 @@ public class ClientInstance {
     }
 
     public String receiveMsg() {
-        this.sendMsg("%#!GETMSG%#!");
+        this.sendMsg("%#!CLIENTREQUEST%#!");
 
         try {
             return in.readLine();

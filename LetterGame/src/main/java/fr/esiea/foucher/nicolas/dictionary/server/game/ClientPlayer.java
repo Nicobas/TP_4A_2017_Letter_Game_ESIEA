@@ -13,13 +13,8 @@ public class ClientPlayer extends AbstractPlayer {
     }
 
     @Override
-    public void playRound(BoardGame bg) {
-
-    }
-
-    @Override
-    public Letter getLetter(BoardGame bg) {
-        Letter l = super.getLetter(bg);
+    public Letter generateRandomLetter(BoardGame bg) {
+        Letter l = super.generateRandomLetter(bg);
         this.client.sendMsg("Vous avez tiré la lettre \"" + l + "\"");
         ClientManager.sendBroadcast(this.getName() + " a tiré la lettre \"" + l + "\"", this.getClient());
         return l;
@@ -28,6 +23,51 @@ public class ClientPlayer extends AbstractPlayer {
     @Override
     public String getName() {
         return this.getClient().getLogin();
+    }
+
+    @Override
+    public String findWord(BoardGame bg) {
+        this.client.sendMsg("Le pot commun contient les lettres suivantes : " + bg.getCommonPotString());
+
+        String word;
+        while (true) {
+            this.client.sendMsg("Entrez un mot ($ pour terminer) :");
+            word = this.client.receiveMsg();
+
+            if (word.equals("$"))
+                return null;
+
+            if (!bg.isAccepted(word)) {
+                this.client.sendMsg("Vous devez utiliser les lettres du pot commun");
+                continue;
+            }
+
+            if (!bg.isWord(word)) {
+                this.client.sendMsg("Ce mot n'est pas dans le dictionnaire");
+                continue;
+            }
+
+            if (bg.isAlreadyFound(word)) {
+                this.client.sendMsg("Ce mot à déjà été trouvé");
+                continue;
+            }
+
+            ClientManager.sendBroadcast(this.getName() + " a trouvé le mot \"" + word + "\"");
+
+            return word;
+        }
+    }
+
+    @Override
+    public void startRound() {
+        this.client.sendMsg("Vous commencez votre tour");
+        ClientManager.sendBroadcast(this.getName() + " commence son tour", this.client);
+    }
+
+    @Override
+    public void endRound() {
+        this.client.sendMsg("Votre tour est terminé");
+        ClientManager.sendBroadcast(this.getName() + " a terminé son tour", this.client);
     }
 
     public ClientInstance getClient() {

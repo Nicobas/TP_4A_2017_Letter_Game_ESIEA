@@ -27,7 +27,7 @@ public class AcceptConnection implements Runnable {
 
                 ClientInstance ci = new ClientInstance(socket, login);
                 ClientManager.addClient(ci);
-                this.game.adddPlayer(new ClientPlayer(ci));
+                this.game.addPlayer(new ClientPlayer(ci));
 
                 System.out.println(login + " vien de se connecter");
                 ClientManager.sendBroadcast(login + " vien de se connecter", ci);
