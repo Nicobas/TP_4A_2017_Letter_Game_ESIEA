@@ -13,7 +13,7 @@ public class Client {
         try {
 
             System.out.println("Demande de connexion");
-            socket = new Socket("127.0.0.1", 2009);
+            socket = new Socket("127.0.0.1", 2017);
 
             t1 = new Thread(new Connection(socket));
             t1.start();

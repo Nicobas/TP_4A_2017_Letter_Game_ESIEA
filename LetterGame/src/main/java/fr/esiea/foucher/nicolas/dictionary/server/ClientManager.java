@@ -28,8 +28,4 @@ public class ClientManager {
     public static void sendBroadcast(String msg) {
         sendBroadcast(msg, null);
     }
-
-    public static int countClients() {
-        return clients.size();
-    }
 }
