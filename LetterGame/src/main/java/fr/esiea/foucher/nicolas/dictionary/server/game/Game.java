@@ -8,8 +8,8 @@ import java.util.List;
 public class Game {
     static int numberOfWordsToWin = 2;
 
-    public List<AbstractPlayer> players;
-    public BoardGame boardgame;
+    private List<AbstractPlayer> players;
+    private BoardGame boardgame;
 
     public Game() {
         this.players = new ArrayList<AbstractPlayer>();
@@ -72,5 +72,9 @@ public class Game {
         s += "Règles du jeu ..." + "\r\n";
 
         return s;
+    }
+
+    public int countPlayer() {
+        return this.players.size();
     }
 }

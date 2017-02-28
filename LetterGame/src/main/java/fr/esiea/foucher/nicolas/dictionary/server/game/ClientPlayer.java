@@ -48,11 +48,12 @@ public class ClientPlayer extends AbstractPlayer {
             }
 
             if (bg.isAlreadyFound(word)) {
-                this.client.sendMsg("Ce mot à déjà été trouvé");
+                this.client.sendMsg("Ce mot a déjà été trouvé");
                 continue;
             }
 
-            ClientManager.sendBroadcast(this.getName() + " a trouvé le mot \"" + word + "\"");
+            this.client.sendMsg("Vous avez trouvé le mot \"" + word + "\"");
+            ClientManager.sendBroadcast(this.getName() + " a trouvé le mot \"" + word + "\"", this.client);
 
             return word;
         }

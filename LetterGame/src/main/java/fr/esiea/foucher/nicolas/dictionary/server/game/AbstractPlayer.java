@@ -28,7 +28,7 @@ public abstract class AbstractPlayer {
         this.generateRandomLetter(bg);
         String word;
 
-        while ((word = this.findWord(bg)) != null && !this.hasWin()) {
+        while (!this.hasWin() && (word = this.findWord(bg)) != null) {
             bg.addFoundWord(word);
             this.addFoundWord(word);
             this.generateRandomLetter(bg);
