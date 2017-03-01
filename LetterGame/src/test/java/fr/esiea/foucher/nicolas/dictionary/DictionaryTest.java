@@ -1,5 +1,6 @@
 package fr.esiea.foucher.nicolas.dictionary;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -17,6 +18,9 @@ public class DictionaryTest {
     public void setup() {
         //TODO
     }
+
+    @After
+    //TODO
 
     @Test
     public void testIsWord() {
