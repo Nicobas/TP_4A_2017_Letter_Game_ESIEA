@@ -29,11 +29,12 @@ public class AcceptConnection implements Runnable {
                 ClientManager.addClient(ci);
                 this.game.addPlayer(new ClientPlayer(ci));
 
+                ci.sendMsg("Connexion établie !");
                 ClientManager.sendBroadcast("-- " + login + " vien de se connecter --", ci);
             }
         } catch (IOException e) {
 
-            System.err.println("Erreur serveur");
+            System.err.println("Erreur de connexion");
         }
 
     }

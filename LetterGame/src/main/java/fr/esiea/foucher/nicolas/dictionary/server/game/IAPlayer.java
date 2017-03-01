@@ -2,6 +2,7 @@ package fr.esiea.foucher.nicolas.dictionary.server.game;
 
 import fr.esiea.foucher.nicolas.dictionary.server.ClientManager;
 
+import java.util.ArrayList;
 import java.util.IllegalFormatException;
 
 public class IAPlayer extends AbstractPlayer {
@@ -14,10 +15,52 @@ public class IAPlayer extends AbstractPlayer {
         this.name = "IA" + currentIAPlayerId;
         currentIAPlayerId++;
 
-        if (difficultyCoefficient < 0 || difficultyCoefficient > 1)
-            throw new Exception("Le coefficient de difficulté doit être comris entre 0 et 1");
+        if (difficultyCoefficient < 0.1 || difficultyCoefficient > 1)
+            throw new Exception("La difficulté doit être comrise entre 0.1 et 1");
 
         this.difficultyCoefficient = difficultyCoefficient;
+    }
+
+    public String checkIsWordAvailable(BoardGame bg) {
+        for (String word : bg.getDictionary()) {
+            boolean ok = true;
+
+            ArrayList<Letter> tmpPot = new ArrayList<Letter>();
+            for (Letter l : bg.getCommonPot())
+                tmpPot.add(l);
+
+            for (char c : word.toCharArray()) {
+                if (c == '-')
+                    continue;
+
+                boolean ok2 = false;
+                Letter toRemove = null;
+                for (Letter l : tmpPot) {
+                    if (l.getChar() == c) {
+                        ok2 = true;
+                        toRemove = l;
+                        break;
+                    }
+                }
+
+                if (!ok2) {
+                    ok = false;
+                    break;
+                }
+
+                tmpPot.remove(toRemove);
+            }
+
+            if (ok) {
+                if (bg.isAlreadyFound(word)) {
+                    continue;
+                }
+
+                return word;
+            }
+        }
+
+        return null;
     }
 
     @Override
@@ -34,6 +77,11 @@ public class IAPlayer extends AbstractPlayer {
 
     @Override
     public String findWord(BoardGame bg) {
+        if (Math.random() < this.difficultyCoefficient) {
+            String foundWord = this.checkIsWordAvailable(bg);
+            ClientManager.sendBroadcast(this.getName() + " a trouvé le mot \"" + foundWord + "\"");
+            return foundWord;
+        }
         return null;
     }
 

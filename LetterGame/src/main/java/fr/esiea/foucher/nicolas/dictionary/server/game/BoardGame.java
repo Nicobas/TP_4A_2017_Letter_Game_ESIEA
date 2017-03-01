@@ -83,16 +83,17 @@ public class BoardGame implements IDictionary {
             if (c == '-')
                 continue;
 
-            boolean ok2 = false;
+            boolean ok = false;
             Letter toRemove = null;
             for (Letter l : tmpPot) {
                 if (l.getChar() == c) {
-                    ok2 = true;
+                    ok = true;
                     toRemove = l;
+                    break;
                 }
             }
 
-            if (!ok2)
+            if (!ok)
                 return false;
 
             tmpPot.remove(toRemove);
@@ -107,5 +108,13 @@ public class BoardGame implements IDictionary {
 
     public void addFoundWord(String word) {
         this.foundWords.add(word);
+    }
+
+    public List<String> getDictionary() {
+        return dictionary;
+    }
+
+    public List<Letter> getCommonPot() {
+        return commonPot;
     }
 }
