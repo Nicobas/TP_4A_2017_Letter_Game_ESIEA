@@ -14,3 +14,9 @@ target/
 
 **.class
 **.jar
+
+LetterGame/LetterGame\.iml
+
+LetterGame/src/main/main\.iml
+
+LetterGame/src/test/test\.iml
