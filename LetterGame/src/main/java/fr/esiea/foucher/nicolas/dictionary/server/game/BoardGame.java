@@ -22,7 +22,8 @@ public class BoardGame implements IDictionary {
         System.out.println(System.getProperty("user.dir"));
 
         try {
-            InputStream flux = new FileInputStream("LetterGame/src/main/resources/dico.txt");
+            ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+            InputStream flux = classloader.getResourceAsStream("dico.txt");
             InputStreamReader reader = new InputStreamReader(flux);
             BufferedReader buff = new BufferedReader(reader);
             String line;
