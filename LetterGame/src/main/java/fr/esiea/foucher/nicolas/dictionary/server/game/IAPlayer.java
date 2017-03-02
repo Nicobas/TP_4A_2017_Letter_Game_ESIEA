@@ -16,7 +16,7 @@ public class IAPlayer extends AbstractPlayer {
         currentIAPlayerId++;
 
         if (difficultyCoefficient < 0.1 || difficultyCoefficient > 1)
-            throw new Exception("La difficulté doit être comrise entre 0.1 et 1");
+            throw new Exception("La difficulté doit être comprise entre 0.1 et 1");
 
         this.difficultyCoefficient = difficultyCoefficient;
     }
