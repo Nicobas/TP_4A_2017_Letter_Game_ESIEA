@@ -30,7 +30,7 @@ public class AcceptConnection implements Runnable {
                 this.game.addPlayer(new ClientPlayer(ci));
 
                 ci.sendMsg("Connexion établie !");
-                ClientManager.sendBroadcast("-- " + login + " vien de se connecter --", ci);
+                ClientManager.sendBroadcast("-- " + login + " vient de se connecter --", ci);
             }
         } catch (IOException e) {
 
