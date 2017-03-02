@@ -8,34 +8,15 @@ import static org.junit.Assert.*;
  * Created by Theo on 02/03/2017.
  */
 public class IAPlayerTest {
-    @Test
-    public void checkIsWordAvailable() throws Exception {
 
+    @Test(expected = Exception.class)
+    public void difficultyTestSuperior() throws Exception {
+        IAPlayer player = new IAPlayer(1.5f);
     }
 
-    @Test
-    public void generateRandomLetter() throws Exception {
-
-    }
-
-    @Test
-    public void getName() throws Exception {
-
-    }
-
-    @Test
-    public void findWord() throws Exception {
-
-    }
-
-    @Test
-    public void startRound() throws Exception {
-
-    }
-
-    @Test
-    public void endRound() throws Exception {
-
+    @Test(expected = Exception.class)
+    public void difficultyTestInferior() throws Exception {
+        IAPlayer player = new IAPlayer(0.01f);
     }
 
 }

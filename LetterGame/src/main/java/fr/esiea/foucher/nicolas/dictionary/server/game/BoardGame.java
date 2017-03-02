@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardGame implements IDictionary {
-    private List<Letter> commonPot;
+    protected List<Letter> commonPot;
     private List<String> dictionary;
     private List<String> foundWords;
 
@@ -19,7 +19,7 @@ public class BoardGame implements IDictionary {
         this.dictionary = new ArrayList<String>();
         this.foundWords = new ArrayList<String>();
 
-        System.out.println(System.getProperty("user.dir"));
+        //System.out.println(System.getProperty("user.dir"));
 
         try {
             ClassLoader classloader = Thread.currentThread().getContextClassLoader();
