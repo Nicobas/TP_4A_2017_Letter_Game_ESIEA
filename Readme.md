@@ -27,26 +27,37 @@ Les règles du Jeu et qui sont notre cahier des charges sont consultables [ici](
 
 ## Structure du code
 Nous avons deux packages principaux et deux sous-packages dans le package server regroupant l'ensemble de nos classes :
-### package client
-- Client
-- Connection
+### Package client
+- Client -> Connection client au serveur
+- Connection -> Classe s'occupant des E/S du client avec le serveur
 
-### package server
-- AcceptConnection
-- ClientInstance
-- ClientManager
-- Server
+### Package server
+- AcceptConnection -> S'occupe de recevoir les connections des clients
+- ClientInstance -> Gère les connections avec le client une fois établies
+- ClientManager -> Gère la multiplicité des clients (pour jouer en multijoueur)
+- Server -> Création du serveur et mise à l'écoute d'un port pour chercher des clients
 
-#### package game (dans server)
--AbstractPlayer
--BoardGame
--ClientPlayer
--Game
--IAPlayer
--Letter
+#### Package game (dans server)
+- AbstractPlayer -> Classe abstraite de client avec gestion du tour d'un client
+- BoardGame -> Chargement du dictionnaire en mémoire, gestion du pot commun de lettres et de l'acceptation des mots
+- ClientPlayer -> Autre classe pour gérer le tour d'un client
+- Game -> Déroulement de la partie entre chaque tour de joueur
+- IAPlayer -> IA pour le mode solo
+- Letter -> Gestion et génération random de lettres pour le pot commun
 	
-##### package dictionary (dans game)
--IDictionary
+##### Package dictionary (dans game)
+- IDictionary -> Interface dictionnaire
 
 Le dictionnaire se situe dans le dossier "ressources" du projet (src/main/ressources) et l'ensemble des tests se situent dans le dossier "tests" (src/test/java).
 
+## Consignes
+- [x] Réaliser un programme sous Java
+- [x] Implémenter toutes les fonctionnalités attendues par l'enseignant
+- [x] Réaliser des tests unitaires (sous JUnit)
+- [x] Utilisation de Maven pour compiler et lancer le programme
+
+## Fonctionnalités
+- [x] Mode Multi-joueurs avec gestion client-serveur
+- [x] Mode IA | Solo
+- [x] Tests unitaires JUnit
+- [x] Possibilité de voler un mot à l'adversaire ou à soi-même (en complétant avec une/plusieurs lettres du pot commun) ou en anagramme
