@@ -16,7 +16,7 @@ public class LetterTest {
     @Test
     public void validChar() {
         boolean alphabet;
-        if(chars.indexOf(letter.getChar()) >= 0)
+        if(letter.chars.indexOf(letter.getChar()) >= 0)
             alphabet = true;
         else
             alphabet = false;

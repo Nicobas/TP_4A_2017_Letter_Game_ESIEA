@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>fr.esiea.unique.binome.name</groupId>
+  <groupId>fr.esiea.foucher.nicolas</groupId>
   <artifactId>LetterGame</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -16,6 +16,7 @@
 
   <build>
     <plugins>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -25,7 +26,23 @@
           <target>${java.version}</target>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <mainClass>fr.esiea.foucher.nicolas.dictionary.server.server</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+
     </plugins>
+
+
   </build>
 
   <dependencies>
