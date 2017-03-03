@@ -24,7 +24,7 @@ $ java -jar LetterGame-0.0.1-SNAPSHOT.jar
 ```
 
 ## Règles du Jeu
-Les règles du Jeu et qui sont notre cahier des charges sont consultables [ici](https://github.com/MLabusquiere/TP_4A_2017_Letter_Game/blob/master/Readme.md).
+Les règles du Jeu et qui sont aussi notre cahier des charges sont consultables [ici](https://github.com/MLabusquiere/TP_4A_2017_Letter_Game/blob/master/Readme.md).
 
 ## Screens
 ### Choix entre client ou serveur
@@ -60,7 +60,7 @@ Nous avons deux packages principaux et deux sous-packages dans le package server
 Le dictionnaire se situe dans le dossier "ressources" du projet (src/main/ressources) et l'ensemble des tests se situent dans le dossier "tests" (src/test/java).
 
 ## Principe de développement
-Nous avons essayé de respecter les principes SOLID vues en cours en limitant les dépendances entres les différentes classes (*Dependency Inversion*) et le principe de ségrégation des interfaces (*Interface Segregation*).
+Nous avons respecté les principes SOLID vues en cours en limitant les dépendances entres les différentes classes (*Dependency Inversion*) et le principe de ségrégation des interfaces (*Interface Segregation*).
 Ainsi, quelqu'un qui voudrait envisager une ré-architecture de notre programme pourrait le faire et très simplement.
 
 ## Consignes
