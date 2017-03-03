@@ -1,4 +1,4 @@
-package fr.esiea.foucher.nicolas.dictionary.server;
+package fr.esiea.foucher.nicolas.server;
 
 import java.io.BufferedReader;
 import java.io.IOException;

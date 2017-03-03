@@ -1,8 +1,6 @@
-package fr.esiea.foucher.nicolas.dictionary.server;
+package fr.esiea.foucher.nicolas.server;
 
-import fr.esiea.foucher.nicolas.dictionary.server.game.AbstractPlayer;
-import fr.esiea.foucher.nicolas.dictionary.server.game.Game;
-import fr.esiea.foucher.nicolas.dictionary.server.game.IAPlayer;
+import fr.esiea.foucher.nicolas.server.game.Game;
 
 import java.io.IOException;
 import java.net.Inet6Address;
@@ -10,16 +8,15 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.ServerSocket;
 import java.util.Enumeration;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Server {
-    public static ServerSocket ss = null;
+    public static ServerSocket ss;
     public static Thread t;
     public static int port = 2017;
     public static AcceptConnection conn;
 
-    public static void main(String[] args) {
+    public static void run() {
         Scanner sc = new Scanner(System.in);
 
         Game game = new Game();
@@ -40,7 +37,7 @@ public class Server {
             ss = new ServerSocket(port);
         } catch (IOException e) {
             System.err.println("Le port " + port + " est déjà utilisé !");
-            return;
+            System.exit(0);
         }
 
         try {

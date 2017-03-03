@@ -1,6 +1,4 @@
-package fr.esiea.foucher.nicolas.dictionary.server.game;
-
-import fr.esiea.foucher.nicolas.dictionary.server.ClientManager;
+package fr.esiea.foucher.nicolas.server.game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +26,13 @@ public abstract class AbstractPlayer {
         this.generateRandomLetter(bg);
         String word;
 
-        while (!this.hasWin() && (word = this.findWord(bg)) != null) {
+        while ((word = this.findWord(bg)) != null) {
             bg.addFoundWord(word);
             this.addFoundWord(word);
+
+            if (this.hasWin())
+                break;
+
             this.generateRandomLetter(bg);
         }
 

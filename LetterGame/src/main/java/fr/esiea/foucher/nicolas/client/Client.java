@@ -1,4 +1,4 @@
-package fr.esiea.foucher.nicolas.dictionary.client;
+package fr.esiea.foucher.nicolas.client;
 
 import java.io.*;
 import java.net.*;
@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class Client {
 
     public static Socket socket;
-    public static Thread t1;
+    public static Thread t;
     public static String adress;
     public static int port;
 
-    public static void main(String[] args) {
+    public static void run() {
 
         adress = "127.0.0.1";
         port = 2017;
@@ -27,8 +27,8 @@ public class Client {
             System.out.println("Demande de connexion");
             socket = new Socket(adress, port);
 
-            t1 = new Thread(new Connection(socket));
-            t1.start();
+            t = new Thread(new Connection(socket));
+            t.start();
 
         } catch (UnknownHostException e) {
             System.err.println("Impossible de se connecter à l'adresse " + adress);

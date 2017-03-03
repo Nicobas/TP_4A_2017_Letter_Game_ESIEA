@@ -1,4 +1,4 @@
-package fr.esiea.foucher.nicolas.dictionary.server.game;
+package fr.esiea.foucher.nicolas.server.game;
 
 import org.junit.Test;
 

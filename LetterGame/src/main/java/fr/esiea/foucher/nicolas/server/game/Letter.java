@@ -1,4 +1,4 @@
-package fr.esiea.foucher.nicolas.dictionary.server.game;
+package fr.esiea.foucher.nicolas.server.game;
 
 public class Letter {
     static String chars = "abcdefghijklmnopqrstuvwxyz";
@@ -28,5 +28,4 @@ public class Letter {
     public String toString() {
         return this.getChar() + "";
     }
-
 }

@@ -1,4 +1,4 @@
-package fr.esiea.foucher.nicolas.dictionary;
+package fr.esiea.foucher.nicolas.server.game.dictionary;
 
 /**
  * Created on 16/01/17.

@@ -1,9 +1,8 @@
-package fr.esiea.foucher.nicolas.dictionary.server.game;
+package fr.esiea.foucher.nicolas.server.game;
 
-import fr.esiea.foucher.nicolas.dictionary.server.ClientManager;
+import fr.esiea.foucher.nicolas.server.ClientManager;
 
 import java.util.ArrayList;
-import java.util.IllegalFormatException;
 
 public class IAPlayer extends AbstractPlayer {
     static int currentIAPlayerId = 0;
@@ -16,7 +15,7 @@ public class IAPlayer extends AbstractPlayer {
         currentIAPlayerId++;
 
         if (difficultyCoefficient < 0.1 || difficultyCoefficient > 1)
-            throw new Exception("La difficulté doit être comprise entre 0.1 et 1");
+            throw new Exception("La difficulté doit être comrise entre 0.1 et 1");
 
         this.difficultyCoefficient = difficultyCoefficient;
     }

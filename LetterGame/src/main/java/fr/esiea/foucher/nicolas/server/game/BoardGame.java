@@ -1,6 +1,6 @@
-package fr.esiea.foucher.nicolas.dictionary.server.game;
+package fr.esiea.foucher.nicolas.server.game;
 
-import fr.esiea.foucher.nicolas.dictionary.IDictionary;
+import fr.esiea.foucher.nicolas.server.game.dictionary.IDictionary;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BoardGame implements IDictionary {
-    protected List<Letter> commonPot;
+    private List<Letter> commonPot;
     private List<String> dictionary;
     private List<String> foundWords;
 
@@ -19,7 +19,7 @@ public class BoardGame implements IDictionary {
         this.dictionary = new ArrayList<String>();
         this.foundWords = new ArrayList<String>();
 
-        //System.out.println(System.getProperty("user.dir"));
+        System.out.println(System.getProperty("user.dir"));
 
         try {
             ClassLoader classloader = Thread.currentThread().getContextClassLoader();
@@ -28,7 +28,7 @@ public class BoardGame implements IDictionary {
             BufferedReader buff = new BufferedReader(reader);
             String line;
             while ((line = buff.readLine()) != null) {
-                //... retirer les caracteres spéciaux
+                //... retirer les caracteres spéciaux, gerer les - partout
                 this.dictionary.add(line);
             }
             buff.close();

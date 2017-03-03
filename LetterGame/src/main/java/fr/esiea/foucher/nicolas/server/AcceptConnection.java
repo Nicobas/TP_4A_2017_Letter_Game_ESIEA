@@ -1,7 +1,7 @@
-package fr.esiea.foucher.nicolas.dictionary.server;
+package fr.esiea.foucher.nicolas.server;
 
-import fr.esiea.foucher.nicolas.dictionary.server.game.ClientPlayer;
-import fr.esiea.foucher.nicolas.dictionary.server.game.Game;
+import fr.esiea.foucher.nicolas.server.game.ClientPlayer;
+import fr.esiea.foucher.nicolas.server.game.Game;
 
 import java.io.*;
 import java.net.*;

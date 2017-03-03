@@ -1,6 +1,6 @@
-package fr.esiea.foucher.nicolas.dictionary.server.game;
+package fr.esiea.foucher.nicolas.server.game;
 
-import fr.esiea.foucher.nicolas.dictionary.server.ClientManager;
+import fr.esiea.foucher.nicolas.server.ClientManager;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;

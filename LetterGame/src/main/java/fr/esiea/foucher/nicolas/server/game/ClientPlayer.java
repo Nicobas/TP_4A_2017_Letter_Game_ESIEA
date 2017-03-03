@@ -1,7 +1,7 @@
-package fr.esiea.foucher.nicolas.dictionary.server.game;
+package fr.esiea.foucher.nicolas.server.game;
 
-import fr.esiea.foucher.nicolas.dictionary.server.ClientInstance;
-import fr.esiea.foucher.nicolas.dictionary.server.ClientManager;
+import fr.esiea.foucher.nicolas.server.ClientInstance;
+import fr.esiea.foucher.nicolas.server.ClientManager;
 
 public class ClientPlayer extends AbstractPlayer {
 

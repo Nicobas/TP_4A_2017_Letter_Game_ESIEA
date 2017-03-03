@@ -1,8 +1,8 @@
-package fr.esiea.foucher.nicolas.dictionary.server.game;
+package fr.esiea.foucher.nicolas.server.game;
 
 import org.junit.Test;
 
-import static fr.esiea.foucher.nicolas.dictionary.server.game.Letter.chars;
+import static fr.esiea.foucher.nicolas.server.game.Letter.chars;
 
 import static org.junit.Assert.*;
 

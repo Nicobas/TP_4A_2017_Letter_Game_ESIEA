@@ -1,4 +1,4 @@
-package fr.esiea.foucher.nicolas.dictionary.client;
+package fr.esiea.foucher.nicolas.client;
 
 import java.net.*;
 import java.util.Scanner;
@@ -6,11 +6,11 @@ import java.io.*;
 
 public class Connection implements Runnable {
 
-    private Socket socket = null;
-    private PrintWriter out = null;
-    private BufferedReader in = null;
-    private String message = null;
-    private Scanner sc = null;
+    private Socket socket;
+    private PrintWriter out;
+    private BufferedReader in;
+    private String message;
+    private Scanner sc;
 
     public Connection(Socket s) {
         socket = s;

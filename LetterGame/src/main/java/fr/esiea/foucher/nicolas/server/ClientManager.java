@@ -1,4 +1,4 @@
-package fr.esiea.foucher.nicolas.dictionary.server;
+package fr.esiea.foucher.nicolas.server;
 
 import java.util.ArrayList;
 import java.util.List;
