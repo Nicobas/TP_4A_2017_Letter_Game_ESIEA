@@ -36,14 +36,16 @@ Nous avons deux packages principaux et deux sous-packages dans le package server
 - ClientInstance
 - ClientManager
 - Server
-#### package game (dans server)
+
+	#### package game (dans server)
 -AbstractPlayer
 -BoardGame
 -ClientPlayer
 -Game
 -IAPlayer
 -Letter
-##### package dictionary (dans game)
+
+	##### package dictionary (dans game)
 -IDictionary
 
 Le dictionnaire se situe dans le dossier "ressources" du projet (src/main/ressources) et l'ensemble des tests se situent dans le dossier "tests" (src/test/java).
