@@ -1,5 +1,6 @@
 package fr.esiea.foucher.nicolas.dictionary;
 
+import fr.esiea.foucher.nicolas.dictionary.server.game.BoardGame;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,15 +13,7 @@ import static org.junit.Assert.assertTrue;
  */
 public class DictionaryTest {
 
-    private IDictionary dictionary;
-
-    @Before
-    public void setup() {
-        //TODO
-    }
-
-    @After
-    //TODO
+    private IDictionary dictionary = new BoardGame();
 
     @Test
     public void testIsWord() {

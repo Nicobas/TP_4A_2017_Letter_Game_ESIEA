@@ -21,7 +21,7 @@ public class BoardGameTest {
 
     @Test
     public void getCommonPotString() throws Exception {
-        
+
     }
 
     @Test

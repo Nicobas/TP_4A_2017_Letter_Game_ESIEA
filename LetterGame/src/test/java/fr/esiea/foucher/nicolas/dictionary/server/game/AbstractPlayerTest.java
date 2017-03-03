@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
  * Created by Theo on 02/03/2017.
  */
 public class AbstractPlayerTest {
+
     @Test
     public void getName() throws Exception {
 
