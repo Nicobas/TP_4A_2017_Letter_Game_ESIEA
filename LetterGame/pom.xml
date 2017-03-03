@@ -34,7 +34,7 @@
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
-              <mainClass>fr.esiea.foucher.nicolas.dictionary.server.server</mainClass>
+              <mainClass>fr.esiea.foucher.nicolas.Main</mainClass>
             </manifest>
           </archive>
         </configuration>
