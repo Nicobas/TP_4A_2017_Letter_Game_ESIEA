@@ -22,11 +22,17 @@ $ mvn package
 $ cd target
 $ java -jar LetterGame-0.0.1-SNAPSHOT.jar
 ```
-## Screens
-
 
 ## Règles du Jeu
 Les règles du Jeu et qui sont notre cahier des charges sont consultables [ici](https://github.com/MLabusquiere/TP_4A_2017_Letter_Game/blob/master/Readme.md).
+
+## Screens
+### Choix entre client ou serveur
+![alt text](https://github.com/Nicobas/TP_4A_2017_Letter_Game_ESIEA/blob/master/LetterGame/src/main/resources/choix%20client-serveur.PNG "Client - serveur")
+### Démarrage du serveur
+![alt text](https://github.com/Nicobas/TP_4A_2017_Letter_Game_ESIEA/blob/master/LetterGame/src/main/resources/serveur.PNG "Serveur")
+### Connection du client
+![alt text](https://github.com/Nicobas/TP_4A_2017_Letter_Game_ESIEA/blob/master/LetterGame/src/main/resources/connection%20client.PNG "Connection client")
 
 ## Structure du code
 Nous avons deux packages principaux et deux sous-packages dans le package server regroupant l'ensemble de nos classes :
