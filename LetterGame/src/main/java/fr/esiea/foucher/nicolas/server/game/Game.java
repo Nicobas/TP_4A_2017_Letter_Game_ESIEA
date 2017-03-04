@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Game {
-    static int numberOfWordsToWin = 2;
+    static int numberOfWordsToWin = 10;
 
     private List<AbstractPlayer> players;
     private BoardGame boardgame;

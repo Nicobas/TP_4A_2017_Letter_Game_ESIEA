@@ -91,6 +91,6 @@ public class IAPlayer extends AbstractPlayer {
 
     @Override
     public void endRound() {
-        ClientManager.sendBroadcast(this.getName() + " a terminé son tour");
+        ClientManager.sendBroadcast(this.getName() + " a terminé son tour. ("+this.getFoundWords().size()+" points)");
     }
 }

@@ -66,10 +66,4 @@ public class Server {
 
         System.out.println();
     }
-
-    //... TODO
-    // gerer les mots avec -
-    // gerer l'IA
-    // tester les failles
-    // empecher la commection apres le début du jeu
 }

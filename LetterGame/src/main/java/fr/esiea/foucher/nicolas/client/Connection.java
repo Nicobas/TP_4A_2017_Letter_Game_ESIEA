@@ -1,5 +1,7 @@
 package fr.esiea.foucher.nicolas.client;
 
+import fr.esiea.foucher.nicolas.server.game.dictionary.StringOperation;
+
 import java.net.*;
 import java.util.Scanner;
 import java.io.*;
@@ -26,7 +28,7 @@ public class Connection implements Runnable {
                 message = in.readLine();
 
                 if (message.equals("%#!CLIENTREQUEST%#!")) {
-                    message = sc.nextLine();
+                    message = StringOperation.sansAccents(sc.nextLine()).toLowerCase();
                     out.println(message);
                     out.flush();
                 } else

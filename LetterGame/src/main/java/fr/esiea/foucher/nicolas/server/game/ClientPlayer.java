@@ -29,6 +29,12 @@ public class ClientPlayer extends AbstractPlayer {
     public String findWord(BoardGame bg) {
         this.client.sendMsg("Le pot commun contient les lettres suivantes : " + bg.getCommonPotString());
 
+        if (bg.getFoundWords().size() > 0) {
+            this.client.sendMsg("Mots déja trouvés :");
+            for (String s : bg.getFoundWords())
+                this.client.sendMsg(s);
+        }
+
         String word;
         while (true) {
             this.client.sendMsg("Entrez un mot ($ pour terminer) :");
@@ -36,11 +42,6 @@ public class ClientPlayer extends AbstractPlayer {
 
             if (word.equals("$"))
                 return null;
-
-            if (!bg.isAccepted(word)) {
-                this.client.sendMsg("Vous devez utiliser les lettres du pot commun");
-                continue;
-            }
 
             if (!bg.isWord(word)) {
                 this.client.sendMsg("Ce mot n'est pas dans le dictionnaire");
@@ -52,8 +53,26 @@ public class ClientPlayer extends AbstractPlayer {
                 continue;
             }
 
+            if (bg.isFoundWordsAnagram(word)) {
+                this.client.sendMsg("Vous avez trouvé l'anagrame  \"" + word + "\"");
+                ClientManager.sendBroadcast(this.getName() + " a trouvé l'anagrame \"" + word + "\"", this.client);
+
+                return word;
+            }
+
+            if (!bg.isAccepted(word)) {
+                this.client.sendMsg("Vous devez utiliser les lettres du pot commun");
+                continue;
+            }
+
             this.client.sendMsg("Vous avez trouvé le mot \"" + word + "\"");
             ClientManager.sendBroadcast(this.getName() + " a trouvé le mot \"" + word + "\"", this.client);
+
+            if (bg.getUsedWords().size() > 0) {
+                this.client.sendMsg("Vous avez utilisé les mot :");
+                for (String s : bg.getUsedWords())
+                    this.client.sendMsg(s);
+            }
 
             return word;
         }
@@ -67,8 +86,8 @@ public class ClientPlayer extends AbstractPlayer {
 
     @Override
     public void endRound() {
-        this.client.sendMsg("Votre tour est terminé");
-        ClientManager.sendBroadcast(this.getName() + " a terminé son tour", this.client);
+        this.client.sendMsg("Votre tour est terminé. ("+this.getFoundWords().size()+" points)");
+        ClientManager.sendBroadcast(this.getName() + " a terminé son tour; . ("+this.getFoundWords().size()+" points)", this.client);
         ClientManager.sendBroadcast("");
     }
 

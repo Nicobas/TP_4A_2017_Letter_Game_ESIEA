@@ -33,6 +33,9 @@ public abstract class AbstractPlayer {
             if (this.hasWin())
                 break;
 
+            for (Letter l : bg.getUsedLetters())
+                bg.getCommonPot().remove(l);
+
             this.generateRandomLetter(bg);
         }
 
